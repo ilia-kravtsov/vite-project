@@ -1,0 +1,72 @@
+@import './mixins/font-face';
+@import './mixins/burger';
+@import './base/variables';
+@import './base/normalize';
+@import './base/fonts.scss';
+
+%thumb {
+  border: 1px solid red;
+}
+
+.some {
+  border-color: black;
+}
+
+@mixin absolute($some: 15px) {
+  position: absolute;
+  inset: 0;
+  font-size: $some;
+}
+
+.body {
+  display: flex;
+  @include absolute(20px);
+  @extend %thumb;
+  @extend .some;
+
+  background-color: var(--some-variable);
+  &__title {
+    color: brown;
+    &::before {
+    }
+    &:hover {
+      color: antiquewhite;
+    }
+    @media (max-width: 1000px) {
+      color: blue;
+    }
+  }
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  max-width: calc(var(--container-width) + var(--container-padding) * 2);
+  width: 100%;
+}
+// этот файл только для импорта других scss файлов
+// вся статика, шрифты и изображения будут находиться в директории public внутри root (src)
+// @import 'vars';
+
+// sass
+// $bg-color: antiquewhite;
+
+// body {
+//   background-color: $bg-color;
+// }
+
+// css
+// :root {
+//   --bg-color: antiquewhite;
+// }
+
+// body {
+//   background-color: var(--bg-color);
+// }
+
+/* @import url("./fonts/stylesheet.css"); */
+
+* {
+  font-family: Roboto, sans-serif;
+  font-weight: 100;
+}

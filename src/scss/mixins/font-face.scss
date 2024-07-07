@@ -1,0 +1,42 @@
+// @font-face {
+//   font-family: 'Montserrat';
+//   src:
+//     local('Montserrat SemiBold'),
+//     local('Montserrat-SemiBold'),
+//     url('../assets/fonts/Montserrat-SemiBold.woff2') format('woff2'),
+//     url('../assets/fonts/Montserrat-SemiBold.woff') format('woff');
+//   font-weight: 600;
+//   font-style: normal;
+//   font-display: swap;
+// }
+
+// @mixin font-face($font-family, $url, $weight) {
+//   @font-face {
+//     src:
+//       local($font-family),
+//       url('../../assets/fonts/#{$url}.woff2') format('woff2');
+//     font-family: $font-family;
+//     font-weight: $weight;
+//     font-style: normal;
+//     font-display: swap;
+//   }
+// }
+
+@mixin font-face($font-family, $font-full-name, $weight) {
+  @font-face {
+    font-family: $font-family;
+    src:
+      local($font-full-name),
+      url('../../assets/fonts/#{$font-full-name}.woff2?v=1') format('woff2'),
+      url('../../assets/fonts/#{$font-full-name}.woff?v=1') format('woff');
+    font-weight: $weight;
+    font-style: normal;
+    font-display: swap;
+  }
+}
+
+@mixin some {
+  @media (max-width: 1440px) {
+    @content; // сюда подставится контент
+  }
+}

@@ -1,0 +1,11 @@
+:root {
+  --some-variable: #fff;
+
+  // vars
+  --container-padding: 15px;
+  --container-width: 1200px;
+}
+
+[data-theme='dark'] {
+  --some-variable: #000;
+}
